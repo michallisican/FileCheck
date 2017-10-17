@@ -16,6 +16,6 @@ std::shared_ptr<iSearchInFile> SearchFileFactory::SearchMethode(int choice)
 	else
 	{
 		throw std::exception("SearchFileFactory::SearchMethode: methode not found!!!\n");
-		return nullptr; //std::make_shared<SearchInFileSubstr>();
+		return nullptr;
 	}
 }

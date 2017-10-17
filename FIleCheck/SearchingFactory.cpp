@@ -13,6 +13,6 @@ std::shared_ptr<iSearching> SearchingFactory::SearchType(int methode, int type)
 	else
 	{
 		throw std::exception("SearchingFactory::SearchType: type not found!!!\n");
-		return nullptr; //std::make_shared<SearchingParallel>();
+		return nullptr;
 	}
 }
