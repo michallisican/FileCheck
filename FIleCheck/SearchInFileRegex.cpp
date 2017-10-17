@@ -12,7 +12,6 @@ void SearchInFileRegex::SearchInFile(std::string file_name, std::string key)
 	file.open(file_name);
 	if (file.is_open())
 	{
-		//std::cout << "File " << file_name  << " is open\n";
 		std::string line;
 		std::string pos = "";
 		std::regex re(key);
