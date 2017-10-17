@@ -22,19 +22,20 @@ void Help()
 {
 	std::cout << "SINTAX:\n [searching methode] [searching type] [path_to_directory_or_file] [searching_word]\n";
 	std::cout << "searching methode: -r = searching with regular expresions, -s = searching with substring methode, -s2 = searching with second substring methode\n";
-	std::cout << "searching type: -p = parallel (multithread) seatching, -s = serial (regular) seatching\n";
+	std::cout << "searching type: -p = parallel (multithread) seatching, -s = sequential seatching\n";
+	//getchar();
 }
 
 
 int main(int argc, char *argv[])
 {
-	std::string Word = "Michal";
-	std::string File = "Testtt";
-	int methode = regex_m;
-	int type = parallel_t;
+	std::string Word = "";
+	std::string File = "";
+	int methode = 0;
+	int type = 0;
 	
 
-	/*if (argc <= 1 || ((std::string) argv[1]).compare("-h") == 0 || ((std::string) argv[1]).compare("--help") == 0)
+	if (argc <= 1 || ((std::string) argv[1]).compare("-h") == 0 || ((std::string) argv[1]).compare("--help") == 0)
 	{
 		Help();
 		return 0;
@@ -49,7 +50,7 @@ int main(int argc, char *argv[])
 	}
 	else if (((std::string) argv[1]).compare("-s2") == 0)
 	{
-	methode = substr2_m;
+		methode = substr2_m;
 	}
 	else
 	{
@@ -63,7 +64,7 @@ int main(int argc, char *argv[])
 	}
 	else if (((std::string) argv[2]).compare("-s") == 0)
 	{
-		type = regular_t;
+		type = sequential_t;
 	}
 	else
 	{
@@ -74,32 +75,24 @@ int main(int argc, char *argv[])
 	if (!((std::string) argv[3]).empty())
 		File = argv[3];
 	else
+	{
 		Help();
+		return 0;
+	}
 
 	if (!((std::string) argv[4]).empty())
 		Word = argv[4];
 	else
-		Help();*/
+	{
+		Help();
+		return 0;
+	}
 
-	std::cout << "---------------------------------------------------Round 1\n";
+	std::cout << "--------------------------START------------------------\n";
 	
-	Start(File, Word, 12, parallel_t);
+	Start(File, Word, methode, type);
 
-	Start(File, Word, regex_m, 55);
-
-	Start(File, Word, regex_m, parallel_t);
-
-	Start(File, Word, substr_m, parallel_t);
-
-	Start(File, Word, substr2_m, parallel_t);
-
-	Start(File, Word, regex_m, sequential_t);
-
-	Start(File, Word, substr_m, sequential_t);
-
-	Start(File, Word, substr2_m, sequential_t);
-
-	getchar();
+	std::cout << "---------------------------END-------------------------\n";
 
 	return 0;
 }
