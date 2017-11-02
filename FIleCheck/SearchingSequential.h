@@ -7,8 +7,8 @@
 class SearchingSequential: public iSearching
 {
 public:
-	SearchingSequential() { _SearchingMethode = regex_m; _SearchingType = sequential_t; };
-	SearchingSequential(int methode, int type) { _SearchingMethode = methode; _SearchingType = type; };
+	SearchingSequential() { _SearchingMethod = regex_m; _SearchingType = sequential_t; };
+	SearchingSequential(int methode, int type) { _SearchingMethod = methode; _SearchingType = type; };
 	~SearchingSequential();
 	int PerformSearch();
 };

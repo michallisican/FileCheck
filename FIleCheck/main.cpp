@@ -9,7 +9,7 @@ void Start( std::string File, std::string Word, int methode, int type )
 	std::shared_ptr <iSearching> search;
 	try
 	{
-		search = (std::shared_ptr <iSearching>) SearchingFactory::SearchType(methode, type);
+		search = SearchingFactory::SearchType(methode, type);
 		search->Start(File, Word);
 	}
 	catch (const std::exception& e)

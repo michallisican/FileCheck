@@ -28,22 +28,26 @@ int iSearching::Start(std::string File, std::string Word)
 		type += "Sequential";
 	else if (_SearchingType == parallel_t)
 		type += "Parallel";
+	else
+		throw "ERROR: Undefined serching type";
 
 	type += " ";
 
-	if (_SearchingMethode == regex_m)
+	if (_SearchingMethod == regex_m)
 		type += "Regex";
-	else if (_SearchingMethode == substr_m)
+	else if (_SearchingMethod == substr_m)
 		type += "Substr";
-	else if (_SearchingMethode == substr2_m)
+	else if (_SearchingMethod == substr2_m)
 		type += "Substr2";
+	else
+		throw "ERROR: Undefined serching method";
 	
 	std::cout << type << " START *************************************\n";
 
 	_File = File;
 	_Word = Word;
-	_apIs.clear();
-	_tv.clear();
+	_vector_of_shared_pointers_for_searching.clear();
+	_vector_of_threads.clear();
 
 	auto start_time = std::chrono::high_resolution_clock::now();
 
@@ -59,16 +63,13 @@ int iSearching::Start(std::string File, std::string Word)
 
 	auto current_time = std::chrono::high_resolution_clock::now();
 	
-	/*std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::minutes>(current_time - start_time).count() << " minutes" << std::endl;
-	std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count() << " seconds" << std::endl;*/
-
-	for (unsigned int i = 0; i < _apIs.size(); i++)
+	for (unsigned int i = 0; i < _vector_of_shared_pointers_for_searching.size(); i++)
 	{
-		if (_apIs[i].get() != nullptr)
+		if (_vector_of_shared_pointers_for_searching[i].get() != nullptr)
 		{
-			for (LineFilePrefix tmp : _apIs[i]->GetResults())
+			for (LineFilePrefix tmp : _vector_of_shared_pointers_for_searching[i]->GetResults())
 				std::cout << tmp.File << " " << tmp.Position << " " << PrefixSufixMaker(Word,3, true) << "..." << PrefixSufixMaker(Word, 3, false) << std::endl;
-			_apIs[i].reset();
+			_vector_of_shared_pointers_for_searching[i].reset();
 		}
 		else
 			std::cout << "Pointer is nullptr\n";
