@@ -7,8 +7,8 @@
 class SearchingParallel : public iSearching
 {
 public:
-	SearchingParallel() { _SearchingMethode = regex_m; _SearchingType = parallel_t; };
-	SearchingParallel(int methode, int type) { _SearchingMethode = methode; _SearchingType = type; };
+	SearchingParallel() { _SearchingMethod = regex_m; _SearchingType = parallel_t; };
+	SearchingParallel(int methode, int type) { _SearchingMethod = methode; _SearchingType = type; };
 	~SearchingParallel();
 	int PerformSearch();
 };

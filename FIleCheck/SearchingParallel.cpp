@@ -8,22 +8,28 @@ SearchingParallel::~SearchingParallel()
 
 int SearchingParallel::PerformSearch()
 {
-	if (iSearchInFile::FileExists(_File))
+	// Check if parameter _File is file or directory 
+	if (iSearchInFile::FileExists(_File)) // Parameter _File is file
 	{
-		_apIs.push_back((std::shared_ptr <iSearchInFile>) SearchFileFactory::SearchMethode(_SearchingMethode));
-		_tv.push_back(std::thread(&iSearchInFile::SearchInFile, _apIs.back(), _File, _Word));
+		// Push back method with search method for next use in thread
+		_vector_of_shared_pointers_for_searching.push_back( SearchFileFactory::SearchMethode(_SearchingMethod));
+		// Push back thread what use a member of iSearchInFile and function for this thread 
+		_vector_of_threads.push_back(std::thread(&iSearchInFile::SearchInFile, _vector_of_shared_pointers_for_searching.back(), _File, _Word));
 	}
-	else
-		for (auto& a_path : std::experimental::filesystem::recursive_directory_iterator(_File))
-			if (iSearchInFile::FileExists(a_path.path().string()))
+	else // Parameter _File is directory
+		for (auto& a_path : std::experimental::filesystem::recursive_directory_iterator(_File)) // Recursively check contents of a directory and its subdirectories
+			if (iSearchInFile::FileExists(a_path.path().string())) // Check if parameter _File is file or directory 
 			{
-				_apIs.push_back((std::shared_ptr <iSearchInFile>) SearchFileFactory::SearchMethode(_SearchingMethode));
-				_tv.push_back(std::thread(&iSearchInFile::SearchInFile, _apIs.back(), a_path.path().string(), _Word));
+				// Push back method with search method for next use in thread
+				_vector_of_shared_pointers_for_searching.push_back( SearchFileFactory::SearchMethode(_SearchingMethod));
+				// Push back thread what use a member of iSearchInFile and function for this thread 
+				_vector_of_threads.push_back(std::thread(&iSearchInFile::SearchInFile, _vector_of_shared_pointers_for_searching.back(), a_path.path().string(), _Word));
 			}
 
-	for (unsigned int i = 0; i < _tv.size(); i++)
-		if (_tv[i].joinable())
-			_tv[i].join();
+	// Waiting for threads
+	for (unsigned int i = 0; i < _vector_of_threads.size(); i++)
+		if (_vector_of_threads[i].joinable())
+			_vector_of_threads[i].join();
 
 	return 0;
 }

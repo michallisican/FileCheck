@@ -37,16 +37,16 @@ class iSearching
 private:
 	std::string PrefixSufixMaker(std::string TextIn, unsigned int MaxPos, bool begin);
 protected:
-	std::vector<std::thread> _tv;
-	std::vector<std::shared_ptr <iSearchInFile>> _apIs;
+	std::vector<std::thread> _vector_of_threads;
+	std::vector<std::shared_ptr <iSearchInFile>> _vector_of_shared_pointers_for_searching;
 	std::string _File;
 	std::string _Word;
-	int _SearchingMethode;
+	int _SearchingMethod;
 	int _SearchingType;
 	virtual int PerformSearch() = 0;
 public:
-	iSearching() { _SearchingMethode = regex_m; _SearchingType = substr_m; };
-	iSearching(int methode, int type) { _SearchingMethode = methode; _SearchingType = type; };
+	iSearching() { _SearchingMethod = regex_m; _SearchingType = substr_m; };
+	iSearching(int methode, int type) { _SearchingMethod = methode; _SearchingType = type; };
 	~iSearching() {};
 	int Start(std::string file, std::string word);
 };
