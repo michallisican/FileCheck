@@ -21,7 +21,7 @@ void Start( std::string File, std::string Word, int methode, int type )
 void Help()
 {
 	std::cout << "SINTAX:\n [searching methods] [searching type] [path_to_directory_or_file] [searching_word]\n";
-	std::cout << "e.g.:\n -s -p C:\Users desktop\n";
+	std::cout << "e.g.:\n FIleCheck.exe -s -p C:\Users desktop\n";
 	std::cout << "searching methods: -r = searching with regular expresions, -s = searching with substring methode, -s2 = searching with second substring methode\n";
 	std::cout << "searching type: -p = parallel (multithread) seatching, -s = serial (regular) seatching\n";
 	std::cout << "when user use -a for searching type or searching method program preform all type and methode of search\n";
