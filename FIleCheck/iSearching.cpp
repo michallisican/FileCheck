@@ -22,6 +22,24 @@ std::string iSearching::PrefixSufixMaker(std::string TextIn, unsigned int MaxPos
 
 int iSearching::Start(std::string File, std::string Word)
 {
+
+	std::string type = "";
+	if (_SearchingType == sequential_t)
+		type += "Sequential";
+	else if (_SearchingType == parallel_t)
+		type += "Parallel";
+
+	type += " ";
+
+	if (_SearchingMethode == regex_m)
+		type += "Regex";
+	else if (_SearchingMethode == substr_m)
+		type += "Substr";
+	else if (_SearchingMethode == substr2_m)
+		type += "Substr2";
+	
+	std::cout << type << " START *************************************\n";
+
 	_File = File;
 	_Word = Word;
 	_apIs.clear();
@@ -40,25 +58,9 @@ int iSearching::Start(std::string File, std::string Word)
 	}
 
 	auto current_time = std::chrono::high_resolution_clock::now();
-
-	std::string type = "";
-	if (_SearchingType == sequential_t)
-		type += "Sequential";
-	else if (_SearchingType == parallel_t)
-		type += "Parallel";
-
-	type += " ";
-
-	if (_SearchingMethode == regex_m)
-		type += "Regex";
-	else if (_SearchingMethode == substr_m)
-		type += "Substr";
-	else if (_SearchingMethode == substr2_m)
-		type += "Substr2";
 	
 	/*std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::minutes>(current_time - start_time).count() << " minutes" << std::endl;
 	std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count() << " seconds" << std::endl;*/
-	std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time).count() << " milliseconds" << std::endl;
 
 	for (unsigned int i = 0; i < _apIs.size(); i++)
 	{
@@ -72,6 +74,8 @@ int iSearching::Start(std::string File, std::string Word)
 			std::cout << "Pointer is nullptr\n";
 	}
 
-	std::cout << "END\n";
+	std::cout << type << " has been running for " << std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time).count() << " milliseconds" << std::endl;
+
+	std::cout << type << " END *************************************\n";
 	return 0;
 }
