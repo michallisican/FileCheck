@@ -16,14 +16,25 @@ void SearchInFileSubstr2::SearchInFile(std::string file_name, std::string key)
 		int i = 0;
 		std::string pos = "";
 
-		for (; getline(file, line); i++)
+		try
 		{
-			unsigned int j = 0;
-			if(!line.empty())
-				for (; j <= line.length() - key.length(); ++j)
-					if (key.compare(line.substr(j, key.length())) == 0)
-						pos += std::to_string(i) + ":" + std::to_string(j) + ", ";
+			for (; getline(file, line); i++)
+			{
+				unsigned int j = 0;
+				if (!line.empty() && (((int)(line.length() - key.length())) >= 0))
+					for (; j <= line.length() - key.length(); ++j)
+						if (key.compare(line.substr(j, key.length())) == 0)
+							pos += std::to_string(i) + ":" + std::to_string(j) + ", ";
+			}
 		}
+		catch (const std::exception& e)
+		{
+			std::cout << "File: " << file_name << " ERROR: " << e.what() << std::endl;
+			file.close();
+			return ;
+		}
+
+		
 
 		file.close();
 

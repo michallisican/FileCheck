@@ -19,12 +19,22 @@ void SearchInFileRegex::SearchInFile(std::string file_name, std::string key)
 
 		for (; getline(file, line); i++)
 		{
-			std::sregex_iterator next(line.begin(), line.end(), re);
-			std::sregex_iterator end;
-			while (next != end) {
-				std::smatch match = *next;
-				pos += std::to_string(i) + ":" + std::to_string(match.position()) + ", ";
-				next++;
+			try
+			{
+				std::sregex_iterator next(line.begin(), line.end(), re);
+				std::sregex_iterator end;
+				while (next != end) {
+					std::smatch match = *next;
+					pos += std::to_string(i) + ":" + std::to_string(match.position()) + ", ";
+					next++;
+				}
+
+			}
+			catch (const std::exception& e)
+			{
+				std::cout << "File: " << file_name << " ERROR: " << e.what() << std::endl;
+				file.close();
+				return;
 			}
 		}
 

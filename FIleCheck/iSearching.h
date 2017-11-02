@@ -18,12 +18,14 @@ enum SearchMethode
 	regex_m = 1,
 	substr_m,
 	substr2_m,
+	all_m,
 };
 
 enum SearchType
 {
 	sequential_t = 1,
 	parallel_t,
+	all_t,
 };
 
 class iSearchInFile;

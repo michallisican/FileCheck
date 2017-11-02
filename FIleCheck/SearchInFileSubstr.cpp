@@ -22,18 +22,29 @@ void SearchInFileSubstr::SearchInFile(std::string file_name, std::string key)
 
 		for (; getline(file, line); i++)
 		{
-			pos_tmp -= key.length();
-			found = line.find(key);
-			for (; !line.empty() && ((found) != std::string::npos); j++)
+			try
 			{
-				pos_tmp += found + key.length();
-				pos += std::to_string(i) + ":" + std::to_string(pos_tmp) + ", ";
-				line.erase(0, found + key.length());
-			}
+				pos_tmp -= key.length();
+				found = line.find(key);
+				for (; !line.empty() && ((found) != std::string::npos); j++)
+				{
+					pos_tmp += found + key.length();
+					pos += std::to_string(i) + ":" + std::to_string(pos_tmp) + ", ";
+					line.erase(0, found + key.length());
+					found = line.find(key);
+				}
 
-			if (line.empty() || ((found) == std::string::npos))
+				if (line.empty() || ((found) == std::string::npos))
+				{
+					pos_tmp = 0;
+				}
+
+			}
+			catch (const std::exception& e)
 			{
-				pos_tmp = 0;
+				std::cout << "File: " << file_name << " ERROR: " << e.what() << std::endl;
+				file.close();
+				return;
 			}
 		}
 
