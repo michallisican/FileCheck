@@ -1,15 +1,15 @@
 #include <memory>
 #include <iostream>
 #include <string>
-#include "iSearching.h"
-#include "SearchingFactory.h"
+#include "iSearchingType.h"
+#include "SearchingTypeFactory.h"
 
 void Start( std::string File, std::string Word, int methode, int type )
 {
-	std::shared_ptr <iSearching> search;
+	std::shared_ptr <iSearchingType> search;
 	try
 	{
-		search = SearchingFactory::SearchType(methode, type);
+		search = SearchingTypeFactory::SearchType(methode, type);
 		search->Start(File, Word);
 	}
 	catch (const std::exception& e)
