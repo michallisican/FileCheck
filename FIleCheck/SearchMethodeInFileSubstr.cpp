@@ -1,6 +1,6 @@
-#include "SearchInFileSubstr.h"
+#include "SearchMethodeInFileSubstr.h"
 
-void SearchInFileSubstr::SearchInFile(std::string file_name, std::string key)
+void SearchMethodeInFileSubstr::SearchMethodeInFile(std::string file_name, std::string key)
 {
 	std::ifstream file;
 
@@ -61,7 +61,7 @@ void SearchInFileSubstr::SearchInFile(std::string file_name, std::string key)
 }
 
 
-std::vector<LineFilePrefix> SearchInFileSubstr::GetResults()
+std::vector<LineFilePrefix> SearchMethodeInFileSubstr::GetResults()
 {
 	std::vector<LineFilePrefix> ret;
 

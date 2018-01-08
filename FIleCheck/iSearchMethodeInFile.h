@@ -25,11 +25,11 @@ struct LineFilePrefix
 //namespace fs = std::experimental::filesystem;
 
 #pragma once
-class iSearchInFile
+class iSearchMethodeInFile
 {
 public:
-	iSearchInFile();
-	virtual void SearchInFile(std::string file_name, std::string key) = 0;
+	iSearchMethodeInFile();
+	virtual void SearchMethodeInFile(std::string file_name, std::string key) = 0;
 	virtual std::vector<LineFilePrefix> GetResults() = 0;
 	static bool FileExists(std::string FileName);
 };

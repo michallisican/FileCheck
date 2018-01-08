@@ -111,27 +111,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="iSearchInFile.cpp" />
-    <ClCompile Include="iSearching.cpp" />
+    <ClCompile Include="iSearchMethodeInFile.cpp" />
+    <ClCompile Include="iSearchingType.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SearchFileFactory.cpp" />
-    <ClCompile Include="SearchInFileRegex.cpp" />
-    <ClCompile Include="SearchInFileSubstr.cpp" />
-    <ClCompile Include="SearchInFileSubstr2.cpp" />
-    <ClCompile Include="SearchingFactory.cpp" />
-    <ClCompile Include="SearchingParallel.cpp" />
-    <ClCompile Include="SearchingSequential.cpp" />
+    <ClCompile Include="SearchMethodeInFileRegex.cpp" />
+    <ClCompile Include="SearchMethodeInFileSubstr.cpp" />
+    <ClCompile Include="SearchMethodeInFileSubstr2.cpp" />
+    <ClCompile Include="SearchingTypeFactory.cpp" />
+    <ClCompile Include="SearchingTypeParallel.cpp" />
+    <ClCompile Include="SearchingTypeSequential.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="iSearchInFile.h" />
-    <ClInclude Include="iSearching.h" />
+    <ClInclude Include="iSearchMethodeInFile.h" />
+    <ClInclude Include="iSearchingType.h" />
     <ClInclude Include="SearchFileFactory.h" />
-    <ClInclude Include="SearchInFileRegex.h" />
-    <ClInclude Include="SearchInFileSubstr.h" />
-    <ClInclude Include="SearchInFileSubstr2.h" />
-    <ClInclude Include="SearchingFactory.h" />
-    <ClInclude Include="SearchingParallel.h" />
-    <ClInclude Include="SearchingSequential.h" />
+    <ClInclude Include="SearchMethodeInFileRegex.h" />
+    <ClInclude Include="SearchMethodeInFileSubstr.h" />
+    <ClInclude Include="SearchMethodeInFileSubstr2.h" />
+    <ClInclude Include="SearchingTypeFactory.h" />
+    <ClInclude Include="SearchingTypeParallel.h" />
+    <ClInclude Include="SearchingTypeSequential.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

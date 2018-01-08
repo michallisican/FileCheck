@@ -1,6 +1,6 @@
-#include "SearchInFileRegex.h"
+#include "SearchMethodeInFileRegex.h"
 
-void SearchInFileRegex::SearchInFile(std::string file_name, std::string key)
+void SearchMethodeInFileRegex::SearchMethodeInFile(std::string file_name, std::string key)
 {
 	std::ifstream file;
 
@@ -51,7 +51,7 @@ void SearchInFileRegex::SearchInFile(std::string file_name, std::string key)
 }
 
 
-std::vector<LineFilePrefix> SearchInFileRegex::GetResults()
+std::vector<LineFilePrefix> SearchMethodeInFileRegex::GetResults()
 {
 	std::vector<LineFilePrefix> ret;
 

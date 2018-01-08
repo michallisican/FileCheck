@@ -2,67 +2,64 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SearchingTypeFactory.cpp">
+      <Filter>Searching</Filter>
+    </ClCompile>
+    <ClCompile Include="iSearchingType.cpp">
+      <Filter>Searching</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchingTypeParallel.cpp">
+      <Filter>Searching</Filter>
+    </ClCompile>
     <ClCompile Include="SearchFileFactory.cpp">
-      <Filter>SearchFile</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchingFactory.cpp">
-      <Filter>Searching</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchingParallel.cpp">
-      <Filter>Searching</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchingSequential.cpp">
-      <Filter>Searching</Filter>
-    </ClCompile>
-    <ClCompile Include="iSearching.cpp">
-      <Filter>Searching</Filter>
-    </ClCompile>
-    <ClCompile Include="SearchInFileRegex.cpp">
       <Filter>SearchInFile</Filter>
     </ClCompile>
-    <ClCompile Include="SearchInFileSubstr.cpp">
+    <ClCompile Include="SearchingTypeSequential.cpp">
+      <Filter>Searching</Filter>
+    </ClCompile>
+    <ClCompile Include="iSearchMethodeInFile.cpp">
       <Filter>SearchInFile</Filter>
     </ClCompile>
-    <ClCompile Include="SearchInFileSubstr2.cpp">
+    <ClCompile Include="SearchMethodeInFileRegex.cpp">
       <Filter>SearchInFile</Filter>
     </ClCompile>
-    <ClCompile Include="iSearchInFile.cpp">
+    <ClCompile Include="SearchMethodeInFileSubstr.cpp">
+      <Filter>SearchInFile</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchMethodeInFileSubstr2.cpp">
       <Filter>SearchInFile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SearchingTypeFactory.h">
+      <Filter>Searching</Filter>
+    </ClInclude>
+    <ClInclude Include="iSearchingType.h">
+      <Filter>Searching</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchingTypeParallel.h">
+      <Filter>Searching</Filter>
+    </ClInclude>
     <ClInclude Include="SearchFileFactory.h">
-      <Filter>SearchFile</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchingFactory.h">
-      <Filter>Searching</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchingParallel.h">
-      <Filter>Searching</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchingSequential.h">
-      <Filter>Searching</Filter>
-    </ClInclude>
-    <ClInclude Include="iSearching.h">
-      <Filter>Searching</Filter>
-    </ClInclude>
-    <ClInclude Include="SearchInFileRegex.h">
       <Filter>SearchInFile</Filter>
     </ClInclude>
-    <ClInclude Include="SearchInFileSubstr.h">
+    <ClInclude Include="SearchingTypeSequential.h">
+      <Filter>Searching</Filter>
+    </ClInclude>
+    <ClInclude Include="iSearchMethodeInFile.h">
       <Filter>SearchInFile</Filter>
     </ClInclude>
-    <ClInclude Include="SearchInFileSubstr2.h">
+    <ClInclude Include="SearchMethodeInFileRegex.h">
       <Filter>SearchInFile</Filter>
     </ClInclude>
-    <ClInclude Include="iSearchInFile.h">
+    <ClInclude Include="SearchMethodeInFileSubstr.h">
+      <Filter>SearchInFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchMethodeInFileSubstr2.h">
       <Filter>SearchInFile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="SearchFile">
-      <UniqueIdentifier>{0bf1e39e-723b-4a13-a388-4a682121deb3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Searching">
       <UniqueIdentifier>{230c4385-7c94-4f42-b2ef-cb53ded72031}</UniqueIdentifier>
     </Filter>

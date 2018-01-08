@@ -1,8 +1,8 @@
-#include "iSearching.h"
-#include "iSearchInFile.h"
+#include "iSearchingType.h"
+#include "iSearchMethodeInFile.h"
 #include "SearchFileFactory.h"
 
-std::string iSearching::PrefixSufixMaker(std::string TextIn, unsigned int MaxPos, bool begin)
+std::string iSearchingType::PrefixSufixMaker(std::string TextIn, unsigned int MaxPos, bool begin)
 {
 	if (!TextIn.empty())
 	{
@@ -20,7 +20,7 @@ std::string iSearching::PrefixSufixMaker(std::string TextIn, unsigned int MaxPos
 		return "String is empty";
 }
 
-int iSearching::Start(std::string File, std::string Word)
+int iSearchingType::Start(std::string File, std::string Word)
 {
 
 	std::string type = "";

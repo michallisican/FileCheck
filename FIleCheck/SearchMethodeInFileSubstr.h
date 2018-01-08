@@ -4,18 +4,18 @@
 #include <mutex>
 #include <vector>
 #include <string>
-#include "iSearchInFile.h"
+#include "iSearchMethodeInFile.h"
 
 #pragma once
-class SearchInFileSubstr : public iSearchInFile
+class SearchMethodeInFileSubstr : public iSearchMethodeInFile
 {
 private:
 	std::mutex myMutex;
 	std::vector<LineFilePrefix> lfp;
 public:
-	SearchInFileSubstr() {};
-	~SearchInFileSubstr() {};
-	void SearchInFile(std::string file_name, std::string key);
+	SearchMethodeInFileSubstr() {};
+	~SearchMethodeInFileSubstr() {};
+	void SearchMethodeInFile(std::string file_name, std::string key);
 	std::vector<LineFilePrefix> GetResults();
 };
 

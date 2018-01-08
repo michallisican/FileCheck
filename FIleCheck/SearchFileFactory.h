@@ -1,9 +1,9 @@
 #ifndef SEARCH_FILE_FACTORY
 #define SEARCH_FILE_FACTORY
 
-#include "iSearching.h"
+#include "iSearchingType.h"
 
-class iSearchInFile;
+class iSearchMethodeInFile;
 
 #pragma once
 class SearchFileFactory
@@ -11,7 +11,7 @@ class SearchFileFactory
 public:
 	SearchFileFactory() {};
 	~SearchFileFactory() {};
-	static std::shared_ptr<iSearchInFile> SearchMethode(int choice = 1);
+	static std::shared_ptr<iSearchMethodeInFile> SearchMethode(int choice = 1);
 
 };
 
